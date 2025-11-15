@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoic Mobile Motivation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // JavaScript to detect system dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+        
+        // Optional: Add a toggle later if desired, or allow browser to dictate
+        // window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+        //     document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        // });
+    </script>
+</head>
+<body>
+
+    <header class="mobile-header">
+        <h1>Mobile Motivation</h1>
+        <p>Your daily dose of resilience & wisdom</p>
+    </header>
+
+    <main class="tile-container">
+        <article class="motivation-tile tile-green">
+            <h2>Morning Reflection</h2>
+            <p>What challenge do you anticipate today, and how will your character respond?</p>
+            <a href="#" class="tile-button">Reflect Now</a>
+        </article>
+        
+        <article class="motivation-tile tile-blue">
+            <h2>Premeditatio Malorum</h2>
+            <p>Imagine the worst-case scenario. How can you be prepared for adversity?</p>
+            <a href="#" class="tile-button">Prepare Mind</a>
+        </article>
+
+        <article class="motivation-tile tile-orange">
+            <h2>Amor Fati</h2>
+            <p>Embrace everything that happens. Love your fate, for better or worse.</p>
+            <a href="#" class="tile-button">Embrace Fate</a>
+        </article>
+
+        <article class="motivation-tile tile-purple">
+            <h2>Virtue is Enough</h2>
+            <p>Happiness comes from virtuous action, not external things. Live wisely.</p>
+            <a href="#" class="tile-button">Live Virtuously</a>
+        </article>
+
+        <article class="motivation-tile tile-red">
+            <h2>Memento Mori</h2>
+            <p>Remember you will die. Use this awareness to live fully, without delay.</p>
+            <a href="#" class="tile-button">Contemplate</a>
+        </article>
+    </main>
+
+    <footer class="mobile-footer">
+        <nav>
+            <a href="#home">Home</a> | 
+            <a href="#archive">Archive</a> | 
+            <a href="#settings">Settings</a>
+        </nav>
+    </footer>
+
+</body>
+</html>

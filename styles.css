@@ -1,0 +1,185 @@
+/* GLOBAL RESET & BASE STYLES */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Light Mode Colors */
+    --background-color: #f7f7f7;
+    --text-color: #333;
+    --header-bg: #4CAF50; /* Stoic Green */
+    --header-text: white;
+    --footer-bg: #333;
+    --footer-text: #90EE90;
+    --tile-bg: white;
+    --tile-border: #ddd;
+    --tile-h2-color: #388E3C; /* Darker Green */
+    --button-bg: #4CAF50;
+    --button-text: white;
+    --button-hover-bg: #388E3C;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-dark: rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    /* Dark Mode Colors */
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #2d6b30; /* Darker Stoic Green */
+    --header-text: #f0f0f0;
+    --footer-bg: #0d0d0d;
+    --footer-text: #a8e6cf;
+    --tile-bg: #2a2a2a;
+    --tile-border: #444;
+    --tile-h2-color: #66bb6a; /* Lighter Dark Green */
+    --button-bg: #4CAF50;
+    --button-text: white;
+    --button-hover-bg: #388E3C;
+    --shadow-light: rgba(255,255,255,0.05);
+    --shadow-dark: rgba(255,255,255,0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding-bottom: 60px; /* Space for fixed footer */
+    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
+}
+
+/* HEADER STYLING */
+.mobile-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px var(--shadow-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mobile-header h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.mobile-header p {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* MAIN CONTENT - TILE CONTAINER */
+.tile-container {
+    padding: 20px;
+    display: flex; /* For potential future grid layout on larger screens */
+    flex-direction: column; /* Stacks tiles vertically on mobile */
+    gap: 20px; /* Space between tiles */
+}
+
+/* MOTIVATION TILE STYLING */
+.motivation-tile {
+    background-color: var(--tile-bg);
+    border: 1px solid var(--tile-border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative; /* For the colored side border */
+    overflow: hidden; /* Ensures border doesn't overflow rounded corners */
+}
+
+.motivation-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px; /* Width of the colored strip */
+    height: 100%;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.motivation-tile h2 {
+    color: var(--tile-h2-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.motivation-tile p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* TILE SPECIFIC SIDE COLORS */
+.tile-green::before { background-color: #66bb6a; } /* Lighter green */
+.tile-blue::before { background-color: #64b5f6; } /* Light blue */
+.tile-orange::before { background-color: #ffb74d; } /* Light orange */
+.tile-purple::before { background-color: #ba68c8; } /* Light purple */
+.tile-red::before { background-color: #ef5350; } /* Light red */
+
+/* BUTTON STYLING (for tile links) */
+.tile-button {
+    display: inline-block; /* Allows padding and width */
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.tile-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+
+/* FOOTER STYLING */
+.mobile-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -2px 4px var(--shadow-dark);
+    z-index: 10;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mobile-footer a {
+    color: var(--footer-text);
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.mobile-footer a:hover {
+    color: #f0f0f0; /* Lighter on hover */
+}
+
+/* MEDIA QUERY FOR LARGER SCREENS (Tablets/Desktops) */
+@media (min-width: 600px) {
+    .tile-container {
+        max-width: 800px; /* Max width for content on larger screens */
+        margin: 20px auto; /* Center the container */
+        display: grid; /* Use CSS Grid for layout */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+        gap: 20px;
+    }
+
+    .mobile-header h1 {
+        font-size: 2.2em;
+    }
+}
