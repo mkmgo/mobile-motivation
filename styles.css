@@ -72,7 +72,52 @@ body {
     font-size: 0.9em;
     opacity: 0.9;
 }
+/* --- TILE SPECIFIC SIDE COLORS (Your existing code) --- */
+.tile-green::before { background-color: #66bb6a; }
+/* ... other side color classes ... */
 
+
+/* --- NEW SECTION: INTERACTIVE AND FORM STYLING --- */
+
+/* 1. Status Message Styling */
+.status-message {
+    font-size: 0.85em;
+    color: var(--tile-h2-color);
+    text-align: center;
+    margin-top: 10px;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 2. Textarea/Input Styling */
+#reflectionInput {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    border: 1px solid var(--tile-border);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    resize: vertical;
+    min-height: 100px;
+    transition: all 0.3s;
+}
+
+[data-theme="dark"] #reflectionInput {
+    background-color: #3a3a3a; /* Slightly lighter box inside dark tile */
+    border: 1px solid #555;
+    color: #e0e0e0;
+}
+
+/* 3. Button Styling (Ensure the save button looks correct) */
+#saveReflectionBtn {
+    margin-top: 15px; 
+    /* The rest of the button styles should be inherited from .tile-button */
+}
+
+/* --- MEDIA QUERY FOR LARGER SCREENS (Your existing code) --- */
+/* ... */
 /* MAIN CONTENT - TILE CONTAINER */
 .tile-container {
     padding: 20px;

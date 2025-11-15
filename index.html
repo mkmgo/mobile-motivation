@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stoic Mobile Motivation</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <script>
         // JavaScript to detect system dark mode preference
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -33,11 +34,15 @@
             <a href="#" class="tile-button">Reflect Now</a>
         </article>
         
-        <article class="motivation-tile tile-blue">
-            <h2>Premeditatio Malorum</h2>
-            <p>Imagine the worst-case scenario. How can you be prepared for adversity?</p>
-            <a href="#" class="tile-button">Prepare Mind</a>
-        </article>
+        <article class="motivation-tile tile-green" id="morning-reflection-tile">
+    <h2>Morning Reflection</h2>
+    <p>What is one challenge you anticipate today, and how will your character respond?</p>
+    
+    <textarea id="reflectionInput" placeholder="Enter your reflection..."></textarea>
+    <button id="saveReflectionBtn" class="tile-button">Save Reflection</button>
+    <p class="status-message" id="reflectionStatus"></p>
+    
+</article>
 
         <article class="motivation-tile tile-orange">
             <h2>Amor Fati</h2>
