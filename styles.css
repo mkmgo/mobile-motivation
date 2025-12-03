@@ -77,9 +77,25 @@ body {
     opacity: 0.9;
 }
 
+/* TILE SPECIFIC HEADLINE COLORS */
+.motivation-tile h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.tile-green h2 { color: #66bb6a; }
+.tile-blue h2 { color: #64b5f6; }
+.tile-orange h2 { color: #ffb74d; }
+.tile-purple h2 { color: #ba68c8; }
+.tile-red h2 { color: #ef5350; }
+
 /* TILE SPECIFIC SIDE COLORS */
 .tile-green::before { background-color: #66bb6a; }
-/* ... other side color classes ... */
+.tile-blue::before { background-color: #64b5f6; }
+.tile-orange::before { background-color: #ffb74d; }
+.tile-purple::before { background-color: #ba68c8; }
+.tile-red::before { background-color: #ef5350; }
 
 /* INTERACTIVE AND FORM STYLING */
 .status-message {
@@ -154,25 +170,11 @@ textarea {
     border-bottom-left-radius: 12px;
 }
 
-.motivation-tile h2 {
-    color: var(--tile-h2-color);
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.4em;
-}
-
 .motivation-tile p {
     font-size: 1em;
     margin-bottom: 15px;
     opacity: 0.9;
 }
-
-/* TILE SPECIFIC SIDE COLORS */
-.tile-green::before { background-color: #66bb6a; }
-.tile-blue::before { background-color: #64b5f6; }
-.tile-orange::before { background-color: #ffb74d; }
-.tile-purple::before { background-color: #ba68c8; }
-.tile-red::before { background-color: #ef5350; }
 
 /* FOOTER STYLING */
 .mobile-footer {
