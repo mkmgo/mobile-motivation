@@ -1,69 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stoic Mobile Motivation</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <script>
-        // JavaScript to detect system dark mode preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-    </script>
-</head>
-<body>
-
-    <header class="mobile-header">
-        <h1>Mobile Motivation</h1>
-        <p>Your daily dose of resilience & wisdom</p>
-    </header>
-
-    <main class="tile-container">
-        <article class="motivation-tile tile-green" id="morning-reflection-tile">
-            <h2>Morning Reflection</h2>
-            <p>What is one challenge you anticipate today, and how will your character respond?</p>
-            <textarea id="reflectionInput" placeholder="Enter your reflection..."></textarea>
-            <button id="saveReflectionBtn" class="tile-button">Save Reflection</button>
-            <p class="status-message" id="reflectionStatus"></p>
-        </article>
-
-        <article class="motivation-tile tile-orange">
-            <h2>Bus driver metaphor</h2>
-            <p>The metaphor presents you as the bus driver, and your passengers are the incessant stream of thoughts constantly shouting at you. They clamor for your attention, yelling directions like, 'No, turn left now!' 'Turn right this instant!' and criticizing your performance: 'You're driving too slowly!' or 'You're going much too fast! <br><b>You are still the bus driver and only you can decide where the bus goes.
-            So it's not about silencing these thoughts somehow, but simply accepting that you have these passengers, but that you don't have to do what they demand all the time. </p>
-            <textarea placeholder="Enter your reflection..."></textarea>
-            <button class="tile-button">Save Reflection</button>
-            <p class="status-message"></p>
-        </article>
-
-        <article class="motivation-tile tile-purple">
-            <h2>Virtue is Enough</h2>
-            <p>Happiness comes from virtuous action, not external things. Live wisely.</p>
-            <textarea placeholder="Enter your reflection..."></textarea>
-            <button class="tile-button">Save Reflection</button>
-            <p class="status-message"></p>
-        </article>
-
-        <article class="motivation-tile tile-red">
-            <h2>Memento Mori</h2>
-            <p>Remember you will die. Use this awareness to live fully, without delay.</p>
-            <textarea placeholder="Enter your reflection..."></textarea>
-            <button class="tile-button">Save Reflection</button>
-            <p class="status-message"></p>
-        </article>
-    </main>
-
-    <footer class="mobile-footer">
-        <nav>
-            <a href="#home">Home</a> | 
-            <a href="#archive">Archive</a> | 
-            <a href="#settings">Settings</a>
-        </nav>
-    </footer>
-
-</body>
-</html>
+[
+    {
+        "tile_id": "bus-driver-metaphor",
+        "tile_title": "Bus driver metaphor",
+        "tile_color": "orange",
+        "tile_content": "The metaphor presents you as the bus driver, and your passengers are the incessant stream of thoughts constantly shouting at you. They clamor for your attention, yelling directions like, 'No, turn left now!' 'Turn right this instant!' and criticizing your performance: 'You're driving too slowly!' or 'You're going much too fast! <br><b>You are still the bus driver and only you can decide where the bus goes. So it's not about silencing these thoughts somehow, but simply accepting that you have these passengers, but that you don't have to do what they demand all the time.",
+        "reflection_prompt": "Enter your reflection...",
+        "media_link": ""
+    },
+    {
+        "tile_id": "virtue-is-enough",
+        "tile_title": "Virtue is Enough",
+        "tile_color": "purple",
+        "tile_content": "Happiness comes from virtuous action, not external things. Live wisely.",
+        "reflection_prompt": "Enter your reflection...",
+        "media_link": ""
+    },
+    {
+        "tile_id": "memento-mori",
+        "tile_title": "Memento Mori",
+        "tile_color": "red",
+        "tile_content": "Remember you will die. Use this awareness to live fully, without delay.",
+        "reflection_prompt": "Enter your reflection...",
+        "media_link": ""
+    }
+]

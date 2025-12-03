@@ -22,39 +22,8 @@
         <p>Your daily dose of resilience & wisdom</p>
     </header>
 
-    <main class="tile-container">
-        <article class="motivation-tile tile-green" id="morning-reflection-tile">
-            <h2>Morning Reflection</h2>
-            <p>What is one challenge you anticipate today, and how will your character respond?</p>
-            <textarea id="reflectionInput" placeholder="Enter your reflection..."></textarea>
-            <button id="saveReflectionBtn" class="tile-button">Save Reflection</button>
-            <p class="status-message" id="reflectionStatus"></p>
-        </article>
-
-        <article class="motivation-tile tile-orange">
-            <h2>Bus driver metaphor</h2>
-            <p>The metaphor presents you as the bus driver, and your passengers are the incessant stream of thoughts constantly shouting at you. They clamor for your attention, yelling directions like, 'No, turn left now!' 'Turn right this instant!' and criticizing your performance: 'You're driving too slowly!' or 'You're going much too fast! <br><b>You are still the bus driver and only you can decide where the bus goes.
-            So it's not about silencing these thoughts somehow, but simply accepting that you have these passengers, but that you don't have to do what they demand all the time. </p>
-            <textarea placeholder="Enter your reflection..."></textarea>
-            <button class="tile-button">Save Reflection</button>
-            <p class="status-message"></p>
-        </article>
-
-        <article class="motivation-tile tile-purple">
-            <h2>Virtue is Enough</h2>
-            <p>Happiness comes from virtuous action, not external things. Live wisely.</p>
-            <textarea placeholder="Enter your reflection..."></textarea>
-            <button class="tile-button">Save Reflection</button>
-            <p class="status-message"></p>
-        </article>
-
-        <article class="motivation-tile tile-red">
-            <h2>Memento Mori</h2>
-            <p>Remember you will die. Use this awareness to live fully, without delay.</p>
-            <textarea placeholder="Enter your reflection..."></textarea>
-            <button class="tile-button">Save Reflection</button>
-            <p class="status-message"></p>
-        </article>
+    <main class="tile-container" id="tileContainer">
+        <!-- Tiles will be dynamically inserted here -->
     </main>
 
     <footer class="mobile-footer">
@@ -64,6 +33,31 @@
             <a href="#settings">Settings</a>
         </nav>
     </footer>
+
+    <script>
+        // Fetch and display tiles from content.json
+        fetch('content.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('tileContainer');
+                data.forEach(tile => {
+                    const article = document.createElement('article');
+                    article.className = `motivation-tile tile-${tile.tile_color}`;
+                    article.id = tile.tile_id;
+
+                    article.innerHTML = `
+                        <h2>${tile.tile_title}</h2>
+                        <p>${tile.tile_content}</p>
+                        <textarea placeholder="${tile.reflection_prompt}"></textarea>
+                        <button class="tile-button">Save Reflection</button>
+                        <p class="status-message"></p>
+                    `;
+
+                    container.appendChild(article);
+                });
+            })
+            .catch(error => console.error('Error loading tile data:', error));
+    </script>
 
 </body>
 </html>
