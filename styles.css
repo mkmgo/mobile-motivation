@@ -21,6 +21,8 @@
     --button-hover-bg: #388E3C;
     --shadow-light: rgba(0,0,0,0.05);
     --shadow-dark: rgba(0,0,0,0.1);
+    --textarea-bg: #f0f0f0; /* Light mode textarea background */
+    --textarea-text: #333; /* Light mode textarea text */
 }
 
 [data-theme="dark"] {
@@ -39,6 +41,8 @@
     --button-hover-bg: #388E3C;
     --shadow-light: rgba(255,255,255,0.05);
     --shadow-dark: rgba(255,255,255,0.1);
+    --textarea-bg: #3a3a3a; /* Dark mode textarea background */
+    --textarea-text: #e0e0e0; /* Dark mode textarea text */
 }
 
 body {
@@ -72,14 +76,12 @@ body {
     font-size: 0.9em;
     opacity: 0.9;
 }
-/* --- TILE SPECIFIC SIDE COLORS (Your existing code) --- */
+
+/* TILE SPECIFIC SIDE COLORS */
 .tile-green::before { background-color: #66bb6a; }
 /* ... other side color classes ... */
 
-
-/* --- NEW SECTION: INTERACTIVE AND FORM STYLING --- */
-
-/* 1. Status Message Styling */
+/* INTERACTIVE AND FORM STYLING */
 .status-message {
     font-size: 0.85em;
     color: var(--tile-h2-color);
@@ -89,44 +91,47 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* 2. Textarea/Input Styling */
-#reflectionInput {
+/* Textarea/Input Styling */
+textarea {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
     border-radius: 8px;
     font-size: 1em;
     border: 1px solid var(--tile-border);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--textarea-bg);
+    color: var(--textarea-text);
     resize: vertical;
     min-height: 100px;
     transition: all 0.3s;
 }
 
-[data-theme="dark"] #reflectionInput {
-    background-color: #3a3a3a; /* Slightly lighter box inside dark tile */
-    border: 1px solid #555;
-    color: #e0e0e0;
+/* BUTTON STYLING */
+.tile-button {
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-/* 3. Button Styling (Ensure the save button looks correct) */
-#saveReflectionBtn {
-    margin-top: 15px; 
-    /* The rest of the button styles should be inherited from .tile-button */
+.tile-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
 }
 
-/* --- MEDIA QUERY FOR LARGER SCREENS (Your existing code) --- */
-/* ... */
 /* MAIN CONTENT - TILE CONTAINER */
 .tile-container {
     padding: 20px;
-    display: flex; /* For potential future grid layout on larger screens */
-    flex-direction: column; /* Stacks tiles vertically on mobile */
-    gap: 20px; /* Space between tiles */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* MOTIVATION TILE STYLING */
 .motivation-tile {
     background-color: var(--tile-bg);
     border: 1px solid var(--tile-border);
@@ -134,8 +139,8 @@ body {
     padding: 20px;
     box-shadow: 0 4px 10px var(--shadow-light);
     transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
-    position: relative; /* For the colored side border */
-    overflow: hidden; /* Ensures border doesn't overflow rounded corners */
+    position: relative;
+    overflow: hidden;
 }
 
 .motivation-tile::before {
@@ -143,7 +148,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 6px; /* Width of the colored strip */
+    width: 6px;
     height: 100%;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -163,30 +168,11 @@ body {
 }
 
 /* TILE SPECIFIC SIDE COLORS */
-.tile-green::before { background-color: #66bb6a; } /* Lighter green */
-.tile-blue::before { background-color: #64b5f6; } /* Light blue */
-.tile-orange::before { background-color: #ffb74d; } /* Light orange */
-.tile-purple::before { background-color: #ba68c8; } /* Light purple */
-.tile-red::before { background-color: #ef5350; } /* Light red */
-
-/* BUTTON STYLING (for tile links) */
-.tile-button {
-    display: inline-block; /* Allows padding and width */
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9em;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.tile-button:hover {
-    background-color: var(--button-hover-bg);
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
+.tile-green::before { background-color: #66bb6a; }
+.tile-blue::before { background-color: #64b5f6; }
+.tile-orange::before { background-color: #ffb74d; }
+.tile-purple::before { background-color: #ba68c8; }
+.tile-red::before { background-color: #ef5350; }
 
 /* FOOTER STYLING */
 .mobile-footer {
@@ -211,16 +197,16 @@ body {
 }
 
 .mobile-footer a:hover {
-    color: #f0f0f0; /* Lighter on hover */
+    color: #f0f0f0;
 }
 
-/* MEDIA QUERY FOR LARGER SCREENS (Tablets/Desktops) */
+/* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 600px) {
     .tile-container {
-        max-width: 800px; /* Max width for content on larger screens */
-        margin: 20px auto; /* Center the container */
-        display: grid; /* Use CSS Grid for layout */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+        max-width: 800px;
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 20px;
     }
 
