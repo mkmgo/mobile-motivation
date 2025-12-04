@@ -1,48 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('reflectionInput');
-    const saveButton = document.getElementById('saveReflectionBtn');
-    const status = document.getElementById('reflectionStatus');
-    const STORAGE_KEY = 'stoicMobile_morningReflection';
+    fetch('content.json')
+        .then(response => response.json())
+        .then(data => {
+            // Reverse the array
+            const reversedTiles = data.slice().reverse();
 
-    /**
-     * 1. Load any previously saved reflection when the page loads.
-     */
-    function loadReflection() {
-        const savedText = localStorage.getItem(STORAGE_KEY);
-        if (savedText) {
-            input.value = savedText;
-            status.textContent = 'Last reflection loaded.';
-            status.style.opacity = 1;
-        } else {
-            status.textContent = '';
-        }
-    }
+            const container = document.getElementById('tileContainer');
+            reversedTiles.forEach(tile => {
+                const article = document.createElement('article');
+                article.className = `motivation-tile tile-${tile.tile_color}`;
+                article.id = tile.tile_id;
 
-    /**
-     * 2. Save the current content of the textarea to localStorage.
-     */
-    function saveReflection() {
-        const textToSave = input.value.trim();
-        
-        if (textToSave === "") {
-            localStorage.removeItem(STORAGE_KEY);
-            status.textContent = 'Reflection cleared.';
-        } else {
-            // Save the reflection locally on the user's device
-            localStorage.setItem(STORAGE_KEY, textToSave);
-            status.textContent = 'Reflection saved successfully!';
-        }
+                // Extract date from tile_content
+                const dateMatch = tile.tile_content.match(/<i>(.*?)<\/i>/);
+                const date = dateMatch ? dateMatch[1] : 'No date available';
 
-        // Display status message briefly
-        status.style.opacity = 1;
-        setTimeout(() => {
-            status.style.opacity = 0;
-        }, 3000);
-    }
+                article.innerHTML = `
+                    <h2>${tile.tile_title}</h2>
+                    <p>${tile.tile_content.replace(/<i>(.*?)<\/i>/, '')}</p>
+                    <p><strong>Date:</strong> ${date}</p>
+                    ${tile.media_link ? `<img src="${tile.media_link}" alt="Media" style="width:100%; max-width:300px; margin-top:10px;">` : ''}
+                    <textarea placeholder="${tile.reflection_prompt}"></textarea>
+                    <button class="tile-button">Save Reflection</button>
+                    <p class="status-message"></p>
+                `;
 
-    // Attach the save function to the button click event
-    saveButton.addEventListener('click', saveReflection);
-
-    // Initial load
-    loadReflection();
+                container.appendChild(article);
+            });
+        })
+        .catch(error => console.error('Error loading tile data:', error));
 });

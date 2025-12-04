@@ -6,17 +6,8 @@
     <title>Stoic Mobile Motivation</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-    <script>
-        // JavaScript to detect system dark mode preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-    </script>
 </head>
 <body>
-
     <header class="mobile-header">
         <h2>Mobile Motivation</h2>
         <p>Daily Dose of Resilience & Wisdom</p>
@@ -33,31 +24,5 @@
             <a href="#settings">Settings</a>
         </nav>
     </footer>
-
-    <script>
-        // Fetch and display tiles from content.json
-        fetch('content.json')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('tileContainer');
-                data.forEach(tile => {
-                    const article = document.createElement('article');
-                    article.className = `motivation-tile tile-${tile.tile_color}`;
-                    article.id = tile.tile_id;
-
-                    article.innerHTML = `
-                        <h2>${tile.tile_title}</h2>
-                        <p>${tile.tile_content}</p>
-                        <textarea placeholder="${tile.reflection_prompt}"></textarea>
-                        <button class="tile-button">Save Reflection</button>
-                        <p class="status-message"></p>
-                    `;
-
-                    container.appendChild(article);
-                });
-            })
-            .catch(error => console.error('Error loading tile data:', error));
-    </script>
-
 </body>
 </html>
