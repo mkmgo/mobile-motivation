@@ -23,6 +23,7 @@
     --shadow-dark: rgba(0,0,0,0.1);
     --textarea-bg: #f0f0f0; /* Light mode textarea background */
     --textarea-text: #333; /* Light mode textarea text */
+    --icon-color: white;
 }
 
 [data-theme="dark"] {
@@ -43,6 +44,7 @@
     --shadow-dark: rgba(255,255,255,0.1);
     --textarea-bg: #3a3a3a; /* Dark mode textarea background */
     --textarea-text: #e0e0e0; /* Dark mode textarea text */
+    --icon-color: #f0f0f0;
 }
 
 body {
@@ -67,6 +69,32 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* ICON TOGGLE BUTTON STYLING (Smaller size applied here) */
+.icon-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px; 
+    height: 30px; 
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid var(--header-text);
+    color: var(--header-text);
+    font-size: 1.1em; 
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.icon-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
 .mobile-header h1 {
     font-size: 1.8em;
     margin-bottom: 5px;
@@ -86,7 +114,6 @@ body {
 }
 
 /* TILE SPECIFIC HEADLINE COLORS (Overrides) */
-/* These use hardcoded colors for a distinct visual style regardless of theme */
 .tile-green h2 { color: #66bb6a; }
 .tile-blue h2 { color: #64b5f6; }
 .tile-orange h2 { color: #ffb74d; }
@@ -132,7 +159,7 @@ textarea {
     color: var(--button-text);
     padding: 10px 15px;
     border-radius: 8px;
-    border: none; /* Ensure buttons don't have border */
+    border: none;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9em;
