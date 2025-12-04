@@ -15,7 +15,7 @@
     --footer-text: #90EE90;
     --tile-bg: white;
     --tile-border: #ddd;
-    --tile-h2-color: #388E3C; /* Darker Green */
+    --tile-h2-color: #388E3C; /* Darker Green for default h2 */
     --button-bg: #4CAF50;
     --button-text: white;
     --button-hover-bg: #388E3C;
@@ -35,7 +35,7 @@
     --footer-text: #a8e6cf;
     --tile-bg: #2a2a2a;
     --tile-border: #444;
-    --tile-h2-color: #66bb6a; /* Lighter Dark Green */
+    --tile-h2-color: #66bb6a; /* Lighter Dark Green for default h2 */
     --button-bg: #4CAF50;
     --button-text: white;
     --button-hover-bg: #388E3C;
@@ -77,13 +77,16 @@ body {
     opacity: 0.9;
 }
 
-/* TILE SPECIFIC HEADLINE COLORS */
+/* TILE SPECIFIC HEADLINE COLORS (Default) */
 .motivation-tile h2 {
+    color: var(--tile-h2-color); /* Use variable for default tile H2 */
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.4em;
 }
 
+/* TILE SPECIFIC HEADLINE COLORS (Overrides) */
+/* These use hardcoded colors for a distinct visual style regardless of theme */
 .tile-green h2 { color: #66bb6a; }
 .tile-blue h2 { color: #64b5f6; }
 .tile-orange h2 { color: #ffb74d; }
@@ -129,9 +132,11 @@ textarea {
     color: var(--button-text);
     padding: 10px 15px;
     border-radius: 8px;
+    border: none; /* Ensure buttons don't have border */
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9em;
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -202,7 +207,7 @@ textarea {
     color: #f0f0f0;
 }
 
-/* MEDIA QUERY FOR LARGER SCREENS */
+/* MEDIA QUERY FOR LARGER SCREENS (Responsiveness) */
 @media (min-width: 600px) {
     .tile-container {
         max-width: 800px;
