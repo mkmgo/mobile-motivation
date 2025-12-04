@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 article.innerHTML = `
                     <h2>${tile.tile_title}</h2>
+                    ${tile.media_link ? `<img src="${tile.media_link}" alt="Media" style="width:50%; max-width:300px; margin-top:10px;">` : ''}
                     <p>${tile.tile_content.replace(/<i>(.*?)<\/i>/, '')}</p>
                     <p><strong>Date:</strong> ${date}</p>
-                    ${tile.media_link ? `<img src="${tile.media_link}" alt="Media" style="width:100%; max-width:300px; margin-top:10px;">` : ''}
                     <textarea placeholder="${tile.reflection_prompt}"></textarea>
                     <button class="tile-button">Save Reflection</button>
                     <p class="status-message"></p>
