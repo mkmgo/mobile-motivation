@@ -69,7 +69,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* ICON TOGGLE BUTTON STYLING (Smaller size applied here) */
+/* ICON TOGGLE BUTTON STYLING */
 .icon-toggle {
     position: absolute;
     top: 15px;

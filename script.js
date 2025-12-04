@@ -47,9 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Remove the date tag from the main content
                 const cleanedContent = tile.tile_content.replace(/<p><i>(.*?)<\/i><\/p>|<p><i>(.*?)<\/i>|<p>(.*?)<\/i><\/p>|<i>(.*?)<\/i>/, '');
 
+                // Updated inline style for media: width: 50% and left alignment
                 article.innerHTML = `
                     <h2>${tile.tile_title}</h2>
-                    ${tile.media_link ? `<img src="${tile.media_link}" alt="Tile Media" style="display: block; width: 60%; max-width: 300px; margin: 10px auto 20px auto; border-radius: 8px;">` : ''}
+                    ${tile.media_link ? `<img src="${tile.media_link}" alt="Tile Media" style="display: block; width: 50%; max-width: 300px; margin: 10px 0 20px 0; border-radius: 8px;">` : ''}
                     <p><strong>Date:</strong> ${date}</p>
                     ${cleanedContent}
                     <textarea id="reflection-text-${tile.tile_id}" placeholder="${tile.reflection_prompt}"></textarea>
