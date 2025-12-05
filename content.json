@@ -27,7 +27,7 @@
     "tile_id": "Cognitive restructuring",
     "tile_title": "Cognitive Restructuring",
     "tile_color": "blue",
-    "tile_content": "<p><i>Fri 5 Dec 2025</i></p><p>Schedule a <b>worry time</b>.</p><p>Instead of trying to stop worrying entirely, set aside a specific 15- to 20-minute period each day to address your concerns. If a worry pops up outside this time, remind yourself, <b>I'll think about this later,</b> and refocus on what you are doing.</p><p>This puts you in control of the thought, rather than the other way around.</p>",
+    "tile_content": "<p><i>Fri 5 Dec 2025</i></p><p>Schedule a <b>worry time</b>.</p><p>Instead of trying to stop worrying entirely, set aside a specific 15- to 20-minute period each day to address your concerns.<p></p>If a worry pops up outside this time, remind yourself, <b>I'll think about this later,</b> and refocus on what you are doing.</p><p>This puts you in control of the thought, rather than the other way around.</p>",
     "reflection_prompt": "Enter your reflection...",
     "media_link": "https://res.cloudinary.com/dqwm4pdbz/image/upload/v1764939780/2_xvy78h.png"
   }
