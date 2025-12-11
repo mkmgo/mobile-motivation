@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Theme Toggle Functionality ---
     const updateThemeButton = (theme) => {
-        // Set the icon based on the current theme state
-        themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
-        // Add ARIA label for accessibility
+        // Corrected Logic: Icon shows the CURRENT theme (Moon for Dark, Sun for Light)
+        themeToggle.innerHTML = theme === 'dark' ? '🌙' : '☀️'; 
+        
+        // ARIA label still describes the ACTION that will happen next
         themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
     };
 
@@ -47,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Remove the date tag from the main content
                 const cleanedContent = tile.tile_content.replace(/<p><i>(.*?)<\/i><\/p>|<p><i>(.*?)<\/i>|<p>(.*?)<\/i><\/p>|<i>(.*?)<\/i>/, '');
 
-                // Updated inline style for media: width: 50% and left alignment
+                // Updated inline style for media: width: 30% and left alignment
                 article.innerHTML = `
                     <h2>${tile.tile_title}</h2>
-                    ${tile.media_link ? `<img src="${tile.media_link}" alt="Tile Media" style="display: block; width: 50%; max-width: 300px; margin: 10px 0 20px 0; border-radius: 8px;">` : ''}
+                    ${tile.media_link ? `<img src="${tile.media_link}" alt="Tile Media" style="display: block; width: 30%; max-width: 300px; margin: 10px 0 20px 0; border-radius: 8px;">` : ''}
                     <p><strong>Date:</strong> ${date}</p>
                     ${cleanedContent}
                     <textarea id="reflection-text-${tile.tile_id}" placeholder="${tile.reflection_prompt}"></textarea>
