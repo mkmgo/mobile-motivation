@@ -1,52 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Halith | Infinite Strength</title>
     <link rel="stylesheet" href="styles.css" />
 
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dqwm4pdbz/image/upload/v1765477890/6_rpzyu1.png" />
-    <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqwm4pdbz/image/upload/v1765477890/6_rpzyu1.png" />
-    
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://res.cloudinary.com/dqwm4pdbz/image/upload/v1765477890/6_rpzyu1.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://res.cloudinary.com/dqwm4pdbz/image/upload/v1765477890/6_rpzyu1.png"
+    />
+
     <meta property="og:title" content="Halith | Infinite Strength" />
     <meta property="og:description" content="What Weighs on my Mind" />
-    <meta property="og:image" content="https://res.cloudinary.com/dqwm4pdbz/image/upload/v1765477890/6_rpzyu1.png" />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dqwm4pdbz/image/upload/v1765477890/6_rpzyu1.png"
+    />
 
     <script>
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            document.documentElement.setAttribute("data-theme", savedTheme);
-        } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.documentElement.setAttribute("data-theme", "dark");
-        } else {
-            document.documentElement.setAttribute("data-theme", "light");
-        }
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      } else if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="mobile-header">
-        <div class="header-content">
-            <i data-lucide="zap" class="header-icon"></i>
-            <h1>Halith</h1>
-            <p><strong>Infinite Strength</strong></p>
-        </div>
-        <button id="theme-toggle" class="icon-toggle" aria-label="Switch Theme">☀️</button>
+      <div class="header-content">
+        <i data-lucide="zap" class="header-icon"></i>
+        <h1>Halith</h1>
+        <p>Infinite Strength</p>
+      </div>
+      <button id="theme-toggle" class="icon-toggle" aria-label="Switch Theme">
+        ☀️
+      </button>
     </header>
 
     <main class="tile-container" id="tileContainer"></main>
 
     <footer class="mobile-footer">
-        <nav>
-            <a href="#home">Home</a> | <a href="#archive">Archive</a> | <a href="#settings">Settings</a>
-        </nav>
+      <nav>
+        <a href="#home">Home</a> | <a href="#archive">Archive</a> |
+        <a href="#settings">Settings</a>
+      </nav>
     </footer>
 
     <script>
-        // Use a small delay to ensure icons find their tags
-        window.addEventListener('load', () => lucide.createIcons());
+      // Use a small delay to ensure icons find their tags
+      window.addEventListener("load", () => lucide.createIcons());
     </script>
-</body>
+  </body>
 </html>

@@ -78,14 +78,14 @@ body {
 }
 
 .mobile-header h1 {
-  font-size: 2.2em; /* Keeping your preferred size */
+  font-size: 1.5em; /* Keeping your preferred size */
+  opacity: 1; /* Increased opacity for better readability on bold text */
   margin: 0;
   line-height: 1;
 }
 
 .mobile-header p {
   font-size: 1.1em;
-  font-weight: bold; /* Formats the claim to be bold */
   opacity: 1; /* Increased opacity for better readability on bold text */
   margin: 0;
   white-space: nowrap;
