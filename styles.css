@@ -84,10 +84,9 @@ body {
 }
 
 .header-icon {
-  width: 24px; /* Increased from 18px */
-  height: 24px; /* Increased from 18px */
-  stroke-width: 2; /* Slightly thinner stroke looks cleaner for the Atom icon */
-  margin-right: 4px; /* Optional: adds a tiny bit of space between icon and text */
+  width: 22px; /* Increased from 18px */
+  height: 22px; /* Increased from 18px */
+  stroke-width: 2; /* Slightly thinner stroke often looks better for complex icons like the Atom */
 }
 
 .icon-toggle {
@@ -206,14 +205,14 @@ textarea {
   z-index: 100;
   box-shadow: 0 -2px 10px var(--shadow-dark);
   /* Optional: Ensure base text is normal weight */
-  font-weight: normal; 
+  font-weight: normal;
 }
 
 .mobile-footer nav a {
   color: var(--footer-text);
   text-decoration: none;
   /* Change this from bold to normal */
-  font-weight: normal; 
+  font-weight: normal;
   margin: 0 15px;
   font-size: 0.85em;
   text-transform: uppercase;
