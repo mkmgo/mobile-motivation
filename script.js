@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         article.innerHTML = `
             <h2>${tile.tile_title}</h2>
-            <p style="color: var(--theme-color); font-style: margin-top: -10px; margin-bottom: 10px; font-size: 0.9em;">
+            <p style="color: var(--theme-color); font-style: italic; margin-top: -10px; margin-bottom: 10px; font-size: 0.9em;">
               ${tile.tile_date}
             </p>
             
