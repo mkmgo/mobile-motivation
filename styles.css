@@ -84,9 +84,10 @@ body {
 }
 
 .header-icon {
-  width: 18px;
-  height: 18px;
-  stroke-width: 2.5;
+  width: 24px; /* Increased from 18px */
+  height: 24px; /* Increased from 18px */
+  stroke-width: 2; /* Slightly thinner stroke looks cleaner for the Atom icon */
+  margin-right: 4px; /* Optional: adds a tiny bit of space between icon and text */
 }
 
 .icon-toggle {
