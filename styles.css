@@ -8,221 +8,105 @@
 }
 
 :root {
-  /* Light Mode Colors */
   --background-color: #f7f7f7;
   --text-color: #333;
-  --header-bg: #d35400; /* Stoic Green */
+  --header-bg: #d35400; 
   --header-text: white;
   --footer-bg: #333;
   --footer-text: #90ee90;
   --tile-bg: white;
   --tile-border: #ddd;
-  --tile-h2-color: #388e3c; /* Darker Green for default h2 */
+  --tile-h2-color: #388e3c;
   --button-bg: #4caf50;
   --button-text: white;
   --button-hover-bg: #388e3c;
   --shadow-light: rgba(0, 0, 0, 0.05);
   --shadow-dark: rgba(0, 0, 0, 0.1);
-  --textarea-bg: #f0f0f0; /* Light mode textarea background */
-  --textarea-text: #333; /* Light mode textarea text */
-  --icon-color: white;
+  --textarea-bg: #f0f0f0;
+  --textarea-text: #333;
 }
 
 [data-theme="dark"] {
-  /* Dark Mode Colors */
   --background-color: #1a1a1a;
   --text-color: #e0e0e0;
-  --header-bg: #a34303; /* Darker Stoic Green */
+  --header-bg: #a34303;
   --header-text: #f0f0f0;
   --footer-bg: #0d0d0d;
   --footer-text: #a8e6cf;
   --tile-bg: #2a2a2a;
   --tile-border: #444;
-  --tile-h2-color: #66bb6a; /* Lighter Dark Green for default h2 */
-  --button-bg: #4caf50;
-  --button-text: white;
-  --button-hover-bg: #388e3c;
-  --shadow-light: rgba(255, 255, 255, 0.05);
-  --shadow-dark: rgba(255, 255, 255, 0.1);
-  --textarea-bg: #3a3a3a; /* Dark mode textarea background */
-  --textarea-text: #e0e0e0; /* Dark mode textarea text */
-  --icon-color: #f0f0f0;
+  --tile-h2-color: #66bb6a;
+  --textarea-bg: #3a3a3a;
+  --textarea-text: #e0e0e0;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   background-color: var(--background-color);
   color: var(--text-color);
-  padding-bottom: 60px; /* Space for fixed footer */
-  transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
+  padding-bottom: 100px; /* Extra space for footer visibility */
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* UPDATED HEADER STYLING for Halith */
+/* --- HEADER SECTION --- */
 .mobile-header {
   background-color: var(--header-bg);
   color: var(--header-text);
-  padding: 10px 15px; /* Compact padding for mobile space */
+  padding: 12px 60px 12px 15px; 
   text-align: left;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   box-shadow: 0 2px 4px var(--shadow-dark);
+  display: flex;
+  align-items: center;
 }
 
 .header-content {
   display: flex;
   align-items: baseline;
-  gap: 10px; /* Spacing between icon, name, and claim */
+  gap: 8px;
 }
 
 .mobile-header h1 {
-  font-size: 1.5em; /* Keeping your preferred size */
-  opacity: 1; /* Increased opacity for better readability on bold text */
+  font-size: 1.3em; 
   margin: 0;
   line-height: 1;
+  font-weight: 500; /* Change to 400 for even thinner, or 500 for medium */
 }
 
 .mobile-header p {
-  font-size: 1.1em;
-  opacity: 1; /* Increased opacity for better readability on bold text */
+  font-size: 0.85em;
+  opacity: 0.9;
   margin: 0;
   white-space: nowrap;
 }
 
-/* Ensure the icon scales with the bold text */
 .header-icon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   stroke-width: 2.5;
-  position: relative;
-  top: 2px;
 }
 
-/* ICON TOGGLE BUTTON STYLING */
 .icon-toggle {
   position: absolute;
-  top: 15px;
   right: 15px;
-  width: 30px;
-  height: 30px;
-  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background-color: transparent;
   border: 1px solid var(--header-text);
   color: var(--header-text);
-  font-size: 1.1em;
-  line-height: 1;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
 }
 
-.icon-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.mobile-header h1 {
-  font-size: 2.2em;
-  margin-bottom: 5px;
-}
-
-.mobile-header p {
-  font-size: 1.1em;
-  opacity: 0.9;
-}
-
-/* TILE SPECIFIC HEADLINE COLORS (Default) */
-.motivation-tile h2 {
-  color: var(--tile-h2-color); /* Use variable for default tile H2 */
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.4em;
-}
-
-/* TILE SPECIFIC HEADLINE COLORS (Overrides) */
-.tile-green h2 {
-  color: #66bb6a;
-}
-.tile-blue h2 {
-  color: #64b5f6;
-}
-.tile-orange h2 {
-  color: #ffb74d;
-}
-.tile-purple h2 {
-  color: #ba68c8;
-}
-.tile-red h2 {
-  color: #ef5350;
-}
-
-/* TILE SPECIFIC SIDE COLORS */
-.tile-green::before {
-  background-color: #66bb6a;
-}
-.tile-blue::before {
-  background-color: #64b5f6;
-}
-.tile-orange::before {
-  background-color: #ffb74d;
-}
-.tile-purple::before {
-  background-color: #ba68c8;
-}
-.tile-red::before {
-  background-color: #ef5350;
-}
-
-/* INTERACTIVE AND FORM STYLING */
-.status-message {
-  font-size: 0.85em;
-  color: var(--tile-h2-color);
-  text-align: center;
-  margin-top: 10px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* Textarea/Input Styling */
-textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  font-size: 1em;
-  border: 1px solid var(--tile-border);
-  background-color: var(--textarea-bg);
-  color: var(--textarea-text);
-  resize: vertical;
-  min-height: 100px;
-  transition: all 0.3s;
-}
-
-/* BUTTON STYLING */
-.tile-button {
-  display: inline-block;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  padding: 10px 15px;
-  border-radius: 8px;
-  border: none;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.tile-button:hover {
-  background-color: var(--button-hover-bg);
-  transform: translateY(-2px);
-}
-
-/* MAIN CONTENT - TILE CONTAINER */
+/* --- TILE SECTION --- */
 .tile-container {
   padding: 20px;
   display: flex;
@@ -235,10 +119,9 @@ textarea {
   border: 1px solid var(--tile-border);
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 10px var(--shadow-light);
-  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 10px var(--shadow-light);
 }
 
 .motivation-tile::before {
@@ -248,53 +131,81 @@ textarea {
   left: 0;
   width: 6px;
   height: 100%;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
 }
 
-.motivation-tile p {
-  font-size: 1em;
+.motivation-tile h2 {
+  color: var(--tile-h2-color);
   margin-bottom: 15px;
-  opacity: 0.9;
+  font-size: 1.4em;
+  background: none; /* Ensure no background blocks the text */
 }
 
-/* FOOTER STYLING */
+/* CORRECTED TILE COLORS: Separating Sidebar from Text Color */
+.tile-green::before { background-color: #66bb6a; } .tile-green h2 { color: #66bb6a; }
+.tile-blue::before  { background-color: #64b5f6; } .tile-blue h2  { color: #64b5f6; }
+.tile-orange::before{ background-color: #ffb74d; } .tile-orange h2 { color: #ffb74d; }
+.tile-purple::before{ background-color: #ba68c8; } .tile-purple h2 { color: #ba68c8; }
+.tile-red::before   { background-color: #ef5350; } .tile-red h2    { color: #ef5350; }
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--tile-border);
+  background-color: var(--textarea-bg);
+  color: var(--textarea-text);
+  min-height: 80px;
+}
+
+.tile-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* --- FOOTER SECTION --- */
 .mobile-footer {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   background-color: var(--footer-bg);
   color: var(--footer-text);
-  padding: 10px 0;
+  padding: 15px 0;
   text-align: center;
-  box-shadow: 0 -2px 4px var(--shadow-dark);
-  z-index: 10;
-  transition: background-color 0.3s, color 0.3s;
+  z-index: 100;
+  box-shadow: 0 -2px 10px var(--shadow-dark);
 }
 
-.mobile-footer a {
+.mobile-footer nav a {
   color: var(--footer-text);
   text-decoration: none;
-  padding: 0 10px;
   font-weight: bold;
-  transition: color 0.3s;
+  margin: 0 15px;
+  font-size: 0.85em;
+  text-transform: uppercase;
 }
 
-.mobile-footer a:hover {
-  color: #f0f0f0;
-}
-
-/* MEDIA QUERY FOR LARGER SCREENS (Responsiveness) */
+/* --- DESKTOP RESPONSIVENESS --- */
 @media (min-width: 600px) {
   .tile-container {
     max-width: 800px;
     margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   .mobile-header h1 {
-    font-size: 2.2em;
+    font-size: 2.2em; 
+  }
+
+  .mobile-header p {
+    font-size: 1.1em;
   }
 }
