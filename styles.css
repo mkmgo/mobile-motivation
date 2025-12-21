@@ -199,11 +199,22 @@ textarea {
   left: 0;
   width: 100%;
   background-color: var(--footer-bg);
+  /* This variable controls the general text color */
   color: var(--footer-text);
   padding: 15px 0;
   text-align: center;
   z-index: 100;
   box-shadow: 0 -2px 10px var(--shadow-dark);
+}
+
+.mobile-footer nav a {
+  /* Ensure the links also inherit the new color */
+  color: var(--footer-text);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 15px;
+  font-size: 0.85em;
+  text-transform: uppercase;
 }
 
 .mobile-footer nav a {
