@@ -12,8 +12,9 @@
   --text-color: #333;
   --header-bg: #d35400;
   --header-text: #fff2a0;
-  --footer-bg: #333;
-  --footer-text: #fff2a0;
+  /* Light mode: Very light grey with transparency */
+  --footer-bg: rgba(236, 236, 236, 0.85);
+  --footer-text: #777;
   --tile-bg: white;
   --tile-border: #ddd;
   --tile-h2-color: #388e3c;
@@ -29,8 +30,9 @@
   --text-color: #e0e0e0;
   --header-bg: #a34303;
   --header-text: #fff2a0c2;
-  --footer-bg: #0d0d0d;
-  --footer-text: #fff2a0;
+  /* Dark mode: Darker than background but more muted than tiles, with transparency */
+  --footer-bg: rgba(18, 18, 18, 0.85);
+  --footer-text: #999;
   --tile-bg: #2a2a2a;
   --tile-border: #444;
   --tile-h2-color: #66bb6a;
@@ -44,7 +46,6 @@ body {
   line-height: 1.6;
   background-color: var(--background-color);
   color: var(--text-color);
-  /* Adjusted padding to accommodate fixed footer height */
   padding-bottom: 80px;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -53,7 +54,6 @@ body {
 .mobile-header {
   background-color: var(--header-bg);
   color: var(--header-text);
-  /* Fixed height prevents growth on zoom */
   height: 60px;
   padding: 0 15px;
   text-align: left;
@@ -72,7 +72,6 @@ body {
 }
 
 .mobile-header h1 {
-  /* Clamp ensures text stays within a readable range regardless of zoom */
   font-size: clamp(1.3rem, 5vw, 1.6rem);
   margin: 0;
   line-height: 1;
@@ -163,7 +162,6 @@ body {
   --theme-color: #f1c40f;
 }
 
-/* DARKENED BUTTON STYLE */
 .tile-button {
   background-color: var(--theme-color, #4caf50);
   filter: brightness(0.85);
@@ -199,7 +197,6 @@ textarea {
   bottom: 0;
   left: 0;
   width: 100%;
-  /* Fixed height for stability */
   height: 50px;
   background-color: var(--footer-bg);
   color: var(--footer-text);
@@ -207,7 +204,11 @@ textarea {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  box-shadow: 0 -2px 10px var(--shadow-dark);
+  /* Blurred background for a "flowing" look */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* Subtlest possible border to define the edge without a heavy shadow */
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
   font-weight: normal;
 }
 
@@ -216,8 +217,10 @@ textarea {
   text-decoration: none;
   font-weight: normal;
   margin: 0 15px;
-  font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+  /* Muted smaller text as requested */
+  font-size: clamp(0.65rem, 2vw, 0.75rem);
   text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 /* --- DESKTOP RESPONSIVENESS --- */
@@ -225,16 +228,21 @@ textarea {
   .tile-container {
     max-width: 800px;
     margin: 20px auto;
-    /* Forces single column even on wider mobile/tablets */
     grid-template-columns: 1fr;
     display: grid;
   }
-
-  /* Increased size slightly for larger screens but still capped */
   .mobile-header h1 {
     font-size: 2rem;
   }
   .mobile-header p {
     font-size: 1.1rem;
   }
+}
+
+/* Increased size slightly for larger screens but still capped */
+.mobile-header h1 {
+  font-size: 2rem;
+}
+.mobile-header p {
+  font-size: 1.1rem;
 }
